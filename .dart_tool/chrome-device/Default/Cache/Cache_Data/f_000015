@@ -1,0 +1,254 @@
+define(['dart_sdk', 'packages/audioplayers/src/notifications/player_control_command.dart', 'packages/flutter/src/foundation/_platform_web.dart', 'packages/audioplayers/src/api/player_state.dart', 'packages/flutter/src/services/system_channels.dart', 'packages/flutter/src/widgets/widget_span.dart'], (function load__packages__audioplayers__src__notifications__notification_service_dart(dart_sdk, packages__audioplayers__src__notifications__player_control_command$46dart, packages__flutter__src__foundation___platform_web$46dart, packages__audioplayers__src__api__player_state$46dart, packages__flutter__src__services__system_channels$46dart, packages__flutter__src__widgets__widget_span$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const async = dart_sdk.async;
+  const _js_helper = dart_sdk._js_helper;
+  const ui = dart_sdk.ui;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const player_control_command = packages__audioplayers__src__notifications__player_control_command$46dart.src__notifications__player_control_command;
+  const platform = packages__flutter__src__foundation___platform_web$46dart.src__foundation__platform;
+  const player_state = packages__audioplayers__src__api__player_state$46dart.src__api__player_state;
+  const platform_channel = packages__flutter__src__services__system_channels$46dart.src__services__platform_channel;
+  const message_codecs = packages__flutter__src__services__system_channels$46dart.src__services__message_codecs;
+  const message_codec = packages__flutter__src__services__system_channels$46dart.src__services__message_codec;
+  const binding = packages__flutter__src__widgets__widget_span$46dart.src__widgets__binding;
+  var notification_service = Object.create(dart.library);
+  var $_get = dartx._get;
+  dart._checkModuleNullSafetyMode(false);
+  var T = {
+    StreamControllerOfPlayerControlCommand: () => (T.StreamControllerOfPlayerControlCommand = dart.constFn(async.StreamController$(player_control_command.PlayerControlCommand)))(),
+    VoidTovoid: () => (T.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))(),
+    IdentityMapOfString$dynamic: () => (T.IdentityMapOfString$dynamic = dart.constFn(_js_helper.IdentityMap$(core.String, dart.dynamic)))(),
+    MapOfString$dynamic: () => (T.MapOfString$dynamic = dart.constFn(core.Map$(core.String, dart.dynamic)))(),
+    PlayerStateTodynamic: () => (T.PlayerStateTodynamic = dart.constFn(dart.fnType(dart.dynamic, [player_state.PlayerState])))(),
+    VoidToFn: () => (T.VoidToFn = dart.constFn(dart.fnType(T.PlayerStateTodynamic(), [])))(),
+    FutureOfNull: () => (T.FutureOfNull = dart.constFn(async.Future$(core.Null)))(),
+    MethodCallToFutureOfNull: () => (T.MethodCallToFutureOfNull = dart.constFn(dart.fnType(T.FutureOfNull(), [message_codec.MethodCall])))()
+  };
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  dart.defineLazy(CT, {
+    get C0() {
+      return C[0] = dart.fn(notification_service._backgroundCallbackDispatcher, T.VoidTovoid());
+    },
+    get C1() {
+      return C[1] = dart.const({
+        __proto__: core.Duration.prototype,
+        [Duration__duration]: 0
+      });
+    },
+    get C4() {
+      return C[4] = dart.const({
+        __proto__: message_codecs.StandardMessageCodec.prototype
+      });
+    },
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: message_codecs.StandardMethodCodec.prototype,
+        [StandardMethodCodec_messageCodec]: C[4] || CT.C4
+      });
+    },
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: platform_channel.MethodChannel.prototype,
+        [MethodChannel__binaryMessenger]: null,
+        [MethodChannel_codec]: C[3] || CT.C3,
+        [MethodChannel_name]: "xyz.luan/audioplayers_callback"
+      });
+    }
+  }, false);
+  var C = Array(5).fill(void 0);
+  var I = [
+    "file:///C:/Users/khati/Downloads/flutter_windows_2.2.2-stable/flutter/.pub-cache/hosted/pub.dartlang.org/audioplayers-0.20.1/lib/src/notifications/notification_service.dart",
+    "package:audioplayers/src/notifications/notification_service.dart"
+  ];
+  var platformChannelInvoke$ = dart.privateName(notification_service, "NotificationService.platformChannelInvoke");
+  var _commandController = dart.privateName(notification_service, "_commandController");
+  var _callWithHandle = dart.privateName(notification_service, "_callWithHandle");
+  var Duration__duration = dart.privateName(core, "Duration._duration");
+  var _call = dart.privateName(notification_service, "_call");
+  notification_service.NotificationService = class NotificationService extends core.Object {
+    get platformChannelInvoke() {
+      return this[platformChannelInvoke$];
+    }
+    set platformChannelInvoke(value) {
+      super.platformChannelInvoke = value;
+    }
+    get onPlayerCommand() {
+      return this[_commandController].stream;
+    }
+    startHeadlessService() {
+      return async.async(dart.void, (function* startHeadlessService() {
+        return this[_callWithHandle]("startHeadlessService", C[0] || CT.C0);
+      }).bind(this));
+    }
+    monitorStateChanges(callback) {
+      if (callback == null) dart.nullFailed(I[0], 60, 38, "callback");
+      return async.async(dart.void, (function* monitorStateChanges() {
+        return this[_callWithHandle]("monitorNotificationStateChanges", callback);
+      }).bind(this));
+    }
+    setNotification(opts) {
+      let title = opts && 'title' in opts ? opts.title : "";
+      if (title == null) dart.nullFailed(I[0], 69, 12, "title");
+      let albumTitle = opts && 'albumTitle' in opts ? opts.albumTitle : "";
+      if (albumTitle == null) dart.nullFailed(I[0], 70, 12, "albumTitle");
+      let artist = opts && 'artist' in opts ? opts.artist : "";
+      if (artist == null) dart.nullFailed(I[0], 71, 12, "artist");
+      let imageUrl = opts && 'imageUrl' in opts ? opts.imageUrl : "";
+      if (imageUrl == null) dart.nullFailed(I[0], 72, 12, "imageUrl");
+      let forwardSkipInterval = opts && 'forwardSkipInterval' in opts ? opts.forwardSkipInterval : C[1] || CT.C1;
+      if (forwardSkipInterval == null) dart.nullFailed(I[0], 73, 14, "forwardSkipInterval");
+      let backwardSkipInterval = opts && 'backwardSkipInterval' in opts ? opts.backwardSkipInterval : C[1] || CT.C1;
+      if (backwardSkipInterval == null) dart.nullFailed(I[0], 74, 14, "backwardSkipInterval");
+      let duration = opts && 'duration' in opts ? opts.duration : C[1] || CT.C1;
+      if (duration == null) dart.nullFailed(I[0], 75, 14, "duration");
+      let elapsedTime = opts && 'elapsedTime' in opts ? opts.elapsedTime : C[1] || CT.C1;
+      if (elapsedTime == null) dart.nullFailed(I[0], 76, 14, "elapsedTime");
+      let enablePreviousTrackButton = opts && 'enablePreviousTrackButton' in opts ? opts.enablePreviousTrackButton : false;
+      if (enablePreviousTrackButton == null) dart.nullFailed(I[0], 77, 10, "enablePreviousTrackButton");
+      let enableNextTrackButton = opts && 'enableNextTrackButton' in opts ? opts.enableNextTrackButton : false;
+      if (enableNextTrackButton == null) dart.nullFailed(I[0], 78, 10, "enableNextTrackButton");
+      return async.async(dart.void, (function* setNotification() {
+        return this[_call]("setNotification", new (T.IdentityMapOfString$dynamic()).from(["title", title, "albumTitle", albumTitle, "artist", artist, "imageUrl", imageUrl, "forwardSkipInterval", forwardSkipInterval.inSeconds, "backwardSkipInterval", backwardSkipInterval.inSeconds, "duration", duration.inSeconds, "elapsedTime", elapsedTime.inSeconds, "enablePreviousTrackButton", enablePreviousTrackButton, "enableNextTrackButton", enableNextTrackButton]));
+      }).bind(this));
+    }
+    clearNotification() {
+      return this[_call]("clearNotification", new (T.IdentityMapOfString$dynamic()).new());
+    }
+    [_callWithHandle](methodName, callback) {
+      if (methodName == null) dart.nullFailed(I[0], 101, 39, "methodName");
+      if (callback == null) dart.nullFailed(I[0], 101, 60, "callback");
+      return async.async(dart.void, (function* _callWithHandle() {
+        let t1, t0;
+        if (!dart.test(notification_service.NotificationService.enableNotificationService)) {
+          dart.throw("The notifications feature was disabled.");
+        }
+        if (platform.defaultTargetPlatform != platform.TargetPlatform.iOS) {
+          return;
+        }
+        yield (t0 = methodName, t1 = new (T.IdentityMapOfString$dynamic()).from(["handleKey", notification_service._getBgHandleKey(callback)]), this.platformChannelInvoke(t0, t1));
+      }).bind(this));
+    }
+    [_call](methodName, args) {
+      if (methodName == null) dart.nullFailed(I[0], 116, 29, "methodName");
+      if (args == null) dart.nullFailed(I[0], 116, 62, "args");
+      return async.async(dart.void, (function* _call() {
+        let t1, t0;
+        if (!dart.test(notification_service.NotificationService.enableNotificationService)) {
+          dart.throw("The notifications feature was disabled.");
+        }
+        if (platform.defaultTargetPlatform != platform.TargetPlatform.iOS) {
+          return;
+        }
+        yield (t0 = methodName, t1 = args, this.platformChannelInvoke(t0, t1));
+      }).bind(this));
+    }
+    dispose() {
+      return async.async(dart.void, (function* dispose() {
+        if (!dart.test(this[_commandController].isClosed)) {
+          yield this[_commandController].close();
+        }
+      }).bind(this));
+    }
+    notifyNextTrack() {
+      this[_commandController].add(player_control_command.PlayerControlCommand.NEXT_TRACK);
+    }
+    notifyPreviousTrack() {
+      this[_commandController].add(player_control_command.PlayerControlCommand.PREVIOUS_TRACK);
+    }
+  };
+  (notification_service.NotificationService.new = function(platformChannelInvoke) {
+    if (platformChannelInvoke == null) dart.nullFailed(I[0], 28, 28, "platformChannelInvoke");
+    this[_commandController] = T.StreamControllerOfPlayerControlCommand().broadcast();
+    this[platformChannelInvoke$] = platformChannelInvoke;
+    if (dart.test(notification_service.NotificationService.enableNotificationService)) {
+      this.startHeadlessService();
+    }
+  }).prototype = notification_service.NotificationService.prototype;
+  dart.addTypeTests(notification_service.NotificationService);
+  dart.addTypeCaches(notification_service.NotificationService);
+  dart.setMethodSignature(notification_service.NotificationService, () => ({
+    __proto__: dart.getMethods(notification_service.NotificationService.__proto__),
+    startHeadlessService: dart.fnType(async.Future$(dart.void), []),
+    monitorStateChanges: dart.fnType(async.Future$(dart.void), [dart.fnType(dart.void, [player_state.PlayerState])]),
+    setNotification: dart.fnType(async.Future$(dart.void), [], {albumTitle: core.String, artist: core.String, backwardSkipInterval: core.Duration, duration: core.Duration, elapsedTime: core.Duration, enableNextTrackButton: core.bool, enablePreviousTrackButton: core.bool, forwardSkipInterval: core.Duration, imageUrl: core.String, title: core.String}, {}),
+    clearNotification: dart.fnType(async.Future$(dart.void), []),
+    [_callWithHandle]: dart.fnType(async.Future$(dart.void), [core.String, core.Function]),
+    [_call]: dart.fnType(async.Future$(dart.void), [core.String, core.Map$(core.String, dart.dynamic)]),
+    dispose: dart.fnType(async.Future$(dart.void), []),
+    notifyNextTrack: dart.fnType(dart.void, []),
+    notifyPreviousTrack: dart.fnType(dart.void, [])
+  }));
+  dart.setGetterSignature(notification_service.NotificationService, () => ({
+    __proto__: dart.getGetters(notification_service.NotificationService.__proto__),
+    onPlayerCommand: async.Stream$(player_control_command.PlayerControlCommand)
+  }));
+  dart.setLibraryUri(notification_service.NotificationService, I[1]);
+  dart.setFieldSignature(notification_service.NotificationService, () => ({
+    __proto__: dart.getFields(notification_service.NotificationService.__proto__),
+    platformChannelInvoke: dart.finalFieldType(dart.fnType(async.Future$(dart.void), [core.String, core.Map$(core.String, dart.dynamic)])),
+    [_commandController]: dart.finalFieldType(async.StreamController$(player_control_command.PlayerControlCommand))
+  }));
+  dart.defineLazy(notification_service.NotificationService, {
+    /*notification_service.NotificationService.enableNotificationService*/get enableNotificationService() {
+      return true;
+    },
+    set enableNotificationService(_) {}
+  }, false);
+  var MethodChannel__binaryMessenger = dart.privateName(platform_channel, "MethodChannel._binaryMessenger");
+  var StandardMethodCodec_messageCodec = dart.privateName(message_codecs, "StandardMethodCodec.messageCodec");
+  var MethodChannel_codec = dart.privateName(platform_channel, "MethodChannel.codec");
+  var MethodChannel_name = dart.privateName(platform_channel, "MethodChannel.name");
+  notification_service._getBgHandleKey = function _getBgHandleKey(callback) {
+    if (callback == null) dart.nullFailed(I[0], 141, 40, "callback");
+    let handle = ui.PluginUtilities.getCallbackHandle(callback);
+    if (!(handle != null)) dart.assertFailed("Unable to lookup callback.", I[0], 143, 10, "handle != null");
+    return [dart.nullCheck(handle).toRawHandle()];
+  };
+  notification_service._backgroundCallbackDispatcher = function _backgroundCallbackDispatcher() {
+    let _channel = C[2] || CT.C2;
+    binding.WidgetsFlutterBinding.ensureInitialized();
+    let onAudioChangeBackgroundEvent = null;
+    _channel.setMethodCallHandler(dart.fn(call => {
+      if (call == null) dart.nullFailed(I[0], 163, 45, "call");
+      return async.async(core.Null, function*() {
+        let args = T.MapOfString$dynamic().as(call.arguments);
+        function _performCallbackLookup() {
+          let handle = new ui.CallbackHandle.fromRawHandle(core.int.as(args[$_get]("updateHandleMonitorKey")));
+          let closure = ui.PluginUtilities.getCallbackFromHandle(handle);
+          if (closure == null) {
+            dart.throw("Fatal Error: Callback lookup failed!");
+          }
+          return T.PlayerStateTodynamic().as(closure);
+        }
+        dart.fn(_performCallbackLookup, T.VoidToFn());
+        if (call.method === "audio.onNotificationBackgroundPlayerStateChanged") {
+          onAudioChangeBackgroundEvent == null ? onAudioChangeBackgroundEvent = _performCallbackLookup() : null;
+          let playerState = core.String.as(args[$_get]("value"));
+          if (playerState === "playing") {
+            dart.nullCheck(onAudioChangeBackgroundEvent)(player_state.PlayerState.PLAYING);
+          } else if (playerState === "paused") {
+            dart.nullCheck(onAudioChangeBackgroundEvent)(player_state.PlayerState.PAUSED);
+          } else if (playerState === "completed") {
+            dart.nullCheck(onAudioChangeBackgroundEvent)(player_state.PlayerState.COMPLETED);
+          }
+        } else {
+          if (!false) dart.assertFailed("No handler defined for method type: '" + dart.str(call.method) + "'", I[0], 191, 14, "false");
+        }
+      });
+    }, T.MethodCallToFutureOfNull()));
+  };
+  dart.trackLibraries("packages/audioplayers/src/notifications/notification_service.dart", {
+    "package:audioplayers/src/notifications/notification_service.dart": notification_service
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["notification_service.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAyBI;;;;;;;AAgBkD,YAAA,AAAmB;IAAM;;AAM5C;AAC/B,cAAO,uBACL;MAGJ;;;UAOmC;AADH;AAG9B,cAAO,uBAAgB,mCAAmC,QAAQ;MACpE;;;UAMS;;UACA;;UACA;;UACA;;UACE;;UACA;;UACA;;UACA;;UACJ;;UACA;;AAVqB;AAY1B,cAAO,aACL,mBACiB,4CACf,SAAS,KAAK,EACd,cAAc,UAAU,EACxB,UAAU,MAAM,EAChB,YAAY,QAAQ,EACpB,uBAAuB,AAAoB,mBAAD,YAC1C,wBAAwB,AAAqB,oBAAD,YAC5C,YAAY,AAAS,QAAD,YACpB,eAAe,AAAY,WAAD,YAC1B,6BAA6B,yBAAyB,EACtD,yBAAyB,qBAAqB;MAGpD;;;AAGE,YAAO,aAAM,qBAAsC;IACrD;sBAEoC,YAAqB;UAArB;UAAqB;AAA7B;;AAC1B,uBAAK;AAC4C,UAA/C,WAAM;;AAER,YAAI,kCAAwC;AAC1C;;AAOD,QALD,YACE,UAAU,OACO,4CACf,aAAa,qCAAgB,QAAQ,KAHnC,AAAqB;MAM7B;;YAE0B,YAAiC;UAAjC;UAAiC;AAAzC;;AAChB,uBAAK;AAC4C,UAA/C,WAAM;;AAER,YAAI,kCAAwC;AAC1C;;AAE2C,QAA7C,YAA4B,UAAU,OAAE,IAAI,EAAtC,AAAqB;MAC7B;;;AAEoB;AAClB,uBAAK,AAAmB;AACU,UAAhC,MAAM,AAAmB;;MAE7B;;;AAGyD,MAAvD,AAAmB,6BAAyB;IAC9C;;AAG6D,MAA3D,AAAmB,6BAAyB;IAC9C;;;QA9GyB;IAMoB,2BACzC;IAPqB;AACvB,kBAAI;AACoB,MAAtB;;EAEJ;;;;;;;;;;;;;;;;;;;;;;;;;;MAXY,kEAAyB;YAAG;;;;;;;;;QAwHH;AAC/B,iBAAyB,qCAAkB,QAAQ;AACzD,UAAO,AAAO,MAAD,6BAAU;AACvB,UAAgB,EAAO,AAAE,eAAR,MAAM;EACzB;;AAOQ;AAGmC,IAAnB;AAGC;AAmCrB,IA9BF,AAAS,QAAD,sBAAsB;UAAY;AAAZ;AACtB,mBAAsB,2BAAf,AAAK,IAAD;AACjB,iBAAsB;AACd,uBAAwB,oCACG,YAA/B,AAAI,IAAA,QAAC;AAKD,wBAA0B,yCAAsB,MAAM;AAE5D,cAAI,AAAQ,OAAD;AACmC,YAA5C,WAAM;;AAER,gBAAe,6BAAR,OAAO;;;AAGhB,YAAI,AAAK,AAAO,IAAR,YAAW;AACwC,UAAzD,AAA6B,4BAAD,WAA5B,+BAAiC,sBAAsB,KAA1B;AACvB,4BAA4B,eAAd,AAAI,IAAA,QAAC;AACzB,cAAI,AAAY,WAAD,KAAI;AACiC,YAAtB,AAAC,eAA7B,4BAA4B,EAAc;gBACrC,KAAI,AAAY,WAAD,KAAI;AACyB,YAArB,AAAC,eAA7B,4BAA4B,EAAc;gBACrC,KAAI,AAAY,WAAD,KAAI;AAC4B,YAAxB,AAAC,eAA7B,4BAA4B,EAAc;;;AAG5C,eAAO,yBAAO,AAAsD,mDAAd,AAAK,IAAD,WAAQ;;MAErE;;EACH","file":"../../../../../../../../../../../../../D:/packages/audioplayers/src/notifications/notification_service.dart.lib.js"}');
+  // Exports:
+  return {
+    src__notifications__notification_service: notification_service
+  };
+}));
+
+//# sourceMappingURL=notification_service.dart.lib.js.map
